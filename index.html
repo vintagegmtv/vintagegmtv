@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Gamer TV</title>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body id="home">
+    <a href="main.html" id="logoLink">
+      <img id="vgtvlogo" src="logos/vgtvlogo.png" alt="Logo Vintage Gamer TV">
+    </a>
+
+    <!-- Audio ambiente automático -->
+    <audio id="ambienteArcade" autoplay loop>
+      <source src="https://raw.githubusercontent.com/vintagegmtv/resources/main/bgsoundlow.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Efecto al hacer clic en el logo -->
+    <audio id="logoSound">
+      <source src="https://raw.githubusercontent.com/vintagegmtv/resources/main/coindrop.mp3" type="audio/mpeg">
+    </audio>
+
+    <p class="copyright">COPYRIGHT 2025 VINTAGE GAMER TV. ALL RIGHTS RESERVED.</p>
+
+    <script>
+      const logoLink = document.getElementById('logoLink');
+      const logoSound = document.getElementById('logoSound');
+      const ambiente = document.getElementById('ambienteArcade');
+
+      // Bajar volumen al cargar
+      ambiente.volume = 0.20; // 20%
+
+      logoLink.addEventListener('click', (event) => {
+        logoSound.play();
+
+        event.preventDefault();
+        setTimeout(() => {
+          window.location.href = logoLink.href;
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>
